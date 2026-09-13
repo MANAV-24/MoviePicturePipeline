@@ -10,10 +10,10 @@ beforeEach(() => {
           movies: [
             { id: '101', title: 'Midnight Signal' },
             { id: '102', title: 'Paper Horizon' },
-            { id: '103', title: 'The Last Frame' },
-          ],
-        }),
-    }),
+            { id: '103', title: 'The Last Frame' }
+          ]
+        })
+    })
   );
 });
 
