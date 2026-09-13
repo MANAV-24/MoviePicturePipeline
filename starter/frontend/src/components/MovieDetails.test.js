@@ -11,7 +11,7 @@ test('renders empty state when no movie is selected', () => {
 test('renders selected movie details', () => {
   render(<MovieDetails movie={{ id: '101', title: 'Midnight Signal' }} />);
 
-  expect(screen.getByRole('heading', { name: 'Midnight Signal', level: 3 }),).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: 'Midnight Signal', level: 3 })).toBeInTheDocument();
 
   const spotlightCard = screen.getByText('Featured').closest('.spotlight-card');
   expect(spotlightCard).toHaveTextContent('Movie ID 101');
