@@ -33,3 +33,4 @@ def test_movies_payload_has_expected_shape():
     movie = response.json["movies"][0]
     assert "id" in movie
     assert "title" in movie
+    
