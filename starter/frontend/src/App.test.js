@@ -1,3 +1,4 @@
+// starter/frontend/src/App.test.js
 import { render, screen, waitFor } from '@testing-library/react';
 import App from './App';
 
@@ -13,7 +14,7 @@ beforeEach(() => {
             { id: '103', title: 'The Last Frame' },
           ],
         }),
-    })
+    }),
   );
 });
 
@@ -27,7 +28,7 @@ test('renders the movie shelf header', async () => {
   expect(screen.getByText(/MoviePicturePipeline/i)).toBeInTheDocument();
 
   await waitFor(() => {
-    expect(screen.getByRole('heading', { name: /movie shelf/i, level: 2})).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /movie shelf/i, level: 2 }),).toBeInTheDocument();
   });
 });
 
@@ -35,8 +36,9 @@ test('loads movies from the API and shows the first movie spotlight', async () =
   render(<App />);
 
   await waitFor(() => {
-    expect(screen.getByRole('heading', { name: 'Midnight Signal', level: 3})).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Midnight Signal', level: 3 }),).toBeInTheDocument();
   });
 
-  expect(screen.getByText(/Movie ID 101/i)).toBeInTheDocument();
+  const spotlightCard = screen.getByText('Featured').closest('.spotlight-card');
+  expect(spotlightCard).toHaveTextContent('Movie ID 101');
 });
