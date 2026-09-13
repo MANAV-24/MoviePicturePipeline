@@ -25,4 +25,3 @@ function MovieDetails({ movie }) {
 }
 
 export default MovieDetails;
-

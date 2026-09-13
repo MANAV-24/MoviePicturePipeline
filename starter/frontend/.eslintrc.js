@@ -34,11 +34,9 @@ module.exports = {
         parser: 'babel-ts',
       },
     ],
-
     'react/prop-types': process.env.FAIL_LINT ? 2 : 0,
     'react/jsx-uses-vars': 'warn',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-uses-react': 'off',
   },
 };
-

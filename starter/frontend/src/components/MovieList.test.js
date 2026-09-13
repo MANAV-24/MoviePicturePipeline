@@ -17,4 +17,3 @@ test('renders movie tiles and calls selection handler', () => {
   fireEvent.click(screen.getByText('Paper Horizon'));
   expect(onSelectMovie).toHaveBeenCalledWith(movies[1]);
 });
-

@@ -13,4 +13,3 @@ test('renders selected movie details', () => {
   expect(screen.getByText('Midnight Signal')).toBeInTheDocument();
   expect(screen.getByText(/Movie ID 101/i)).toBeInTheDocument();
 });
-
