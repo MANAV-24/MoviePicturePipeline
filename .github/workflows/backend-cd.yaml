@@ -111,13 +111,6 @@ jobs:
       - name: Update kubeconfig
         run: aws eks update-kubeconfig --name scrumptious-lofi-sheepdog --region us-east-1
 
-      - name: Update backend image
-        run: |
-          cd starter/backend/k8s
-          ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
-          ECR_URI="$ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY"
-          kustomize edit set image backend=$ECR_URI:$IMAGE_TAG
-
       - name: Debug auth
         run: |
           echo "== Caller identity =="
@@ -131,6 +124,13 @@ jobs:
 
           echo "== Test raw API access =="
           kubectl get svc --v=8 2>&1 | head -100
+
+      - name: Update backend image
+        run: |
+          cd starter/backend/k8s
+          ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+          ECR_URI="$ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY"
+          kustomize edit set image backend=$ECR_URI:$IMAGE_TAG
 
       - name: Apply manifests
         run: |
