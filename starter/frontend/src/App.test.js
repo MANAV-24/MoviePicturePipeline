@@ -13,7 +13,7 @@ beforeEach(() => {
             { id: '103', title: 'The Last Frame' },
           ],
         }),
-    }),
+    })
   );
 });
 
