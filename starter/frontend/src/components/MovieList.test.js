@@ -9,9 +9,7 @@ const movies = [
 test('renders movie tiles and calls selection handler', () => {
   const onSelectMovie = jest.fn();
 
-  render(
-    <MovieList movies={movies} selectedMovieId="101" onSelectMovie={onSelectMovie} />,
-  );
+  render(<MovieList movies={movies} selectedMovieId="101" onSelectMovie={onSelectMovie} />);
 
   expect(screen.getByText('Midnight Signal')).toBeInTheDocument();
   expect(screen.getByText('Paper Horizon')).toBeInTheDocument();
