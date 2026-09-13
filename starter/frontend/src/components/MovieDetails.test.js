@@ -10,6 +10,6 @@ test('renders empty state when no movie is selected', () => {
 test('renders selected movie details', () => {
   render(<MovieDetails movie={{ id: '101', title: 'Midnight Signal' }} />);
 
-  expect(screen.getByText('Midnight Signal')).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: 'Midnight Signal', level: 3 })).toBeInTheDocument();
   expect(screen.getByText(/Movie ID 101/i)).toBeInTheDocument();
 });

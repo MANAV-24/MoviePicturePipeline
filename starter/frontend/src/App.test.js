@@ -27,7 +27,7 @@ test('renders the movie shelf header', async () => {
   expect(screen.getByText(/MoviePicturePipeline/i)).toBeInTheDocument();
 
   await waitFor(() => {
-    expect(screen.getByText(/Movie shelf/i)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /movie shelf/i, level: 2})).toBeInTheDocument();
   });
 });
 
@@ -35,7 +35,7 @@ test('loads movies from the API and shows the first movie spotlight', async () =
   render(<App />);
 
   await waitFor(() => {
-    expect(screen.getByText('Midnight Signal')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Midnight Signal', level: 3})).toBeInTheDocument();
   });
 
   expect(screen.getByText(/Movie ID 101/i)).toBeInTheDocument();
