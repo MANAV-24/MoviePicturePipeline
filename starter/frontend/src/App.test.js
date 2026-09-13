@@ -40,3 +40,4 @@ test('loads movies from the API and shows the first movie spotlight', async () =
 
   expect(screen.getByText(/Movie ID 101/i)).toBeInTheDocument();
 });
+

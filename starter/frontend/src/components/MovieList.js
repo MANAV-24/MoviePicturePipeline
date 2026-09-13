@@ -28,3 +28,4 @@ function MovieList({ movies, selectedMovieId, onSelectMovie }) {
 }
 
 export default MovieList;
+
