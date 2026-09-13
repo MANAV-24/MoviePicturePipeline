@@ -12,7 +12,7 @@ env:
   AWS_REGION: us-east-1
   ECR_REPOSITORY: moviepicturepipeline-frontend
   IMAGE_TAG: ${{ github.sha }}
-  REACT_APP_MOVIE_API_URL: http://localhost:5000
+  REACT_APP_MOVIE_API_URL: http://3.87.8.193:30118
 
 jobs:
   lint:
