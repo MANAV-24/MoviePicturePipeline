@@ -1,10 +1,11 @@
 from flask import Flask, jsonify
-
+from flask_cors import CORS
 from movies import catalogue
 
 
 def create_app():
     app = Flask(__name__)
+    CORS(app)
 
     @app.get("/health")
     def health():
