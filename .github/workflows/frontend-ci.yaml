@@ -67,7 +67,6 @@ jobs:
     needs:
       - lint
       - test
-
     runs-on: ubuntu-latest
 
     defaults:
@@ -92,5 +91,4 @@ jobs:
         run: |
           docker build \
             --build-arg REACT_APP_MOVIE_API_URL=${{ env.REACT_APP_MOVIE_API_URL }} \
-            -t mp-frontend:latest .
-            
+            -t moviepicturepipeline-frontend:latest .

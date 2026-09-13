@@ -1,14 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: backend
-  labels:
-    app: backend
+  name: moviepicture-backend
 spec:
-  type: LoadBalancer
   selector:
-    app: backend
+    app: moviepicture-backend
   ports:
-    - protocol: TCP
-      port: 80
+    - port: 5000
       targetPort: 5000
+  type: ClusterIP

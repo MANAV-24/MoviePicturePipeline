@@ -1,21 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend
-  labels:
-    app: backend
+  name: moviepicture-backend
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
-      app: backend
+      app: moviepicture-backend
   template:
     metadata:
       labels:
-        app: backend
+        app: moviepicture-backend
     spec:
       containers:
         - name: backend
-          image: backend
+          image: moviepicture-backend:latest
           ports:
             - containerPort: 5000

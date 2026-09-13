@@ -1,26 +1,35 @@
-from . import app
-import os
+from app import create_app
 
 
-def test_movies_endpoint_returns_200():
-    with app.test_client() as client:
-        status_code = os.getenv("FAIL_TEST", 200)
-        response = client.get("/movies/")
-        assert response.status_code == status_code
+def test_health_endpoint_returns_ok():
+    app = create_app()
+    client = app.test_client()
+
+    response = client.get("/health")
+
+    assert response.status_code == 200
+    assert response.json["status"] == "ok"
+    assert response.json["service"] == "MoviePicturePipeline"
 
 
-def test_movies_endpoint_returns_json():
-    with app.test_client() as client:
-        response = client.get("/movies/")
-        assert response.content_type == "application/json"
+def test_movies_endpoint_returns_movies():
+    app = create_app()
+    client = app.test_client()
+
+    response = client.get("/movies")
+
+    assert response.status_code == 200
+    assert "movies" in response.json
+    assert response.json["count"] == 3
+    assert len(response.json["movies"]) == 3
 
 
-def test_movies_endpoint_returns_valid_data():
-    with app.test_client() as client:
-        response = client.get("/movies/")
-        data = response.get_json()
-        assert isinstance(data, dict)
-        assert "movies" in data
-        assert isinstance(data.get("movies"), list)
-        assert len(data["movies"]) > 0
-        assert "title" in data["movies"][0]
+def test_movies_payload_has_expected_shape():
+    app = create_app()
+    client = app.test_client()
+
+    response = client.get("/movies")
+
+    movie = response.json["movies"][0]
+    assert "id" in movie
+    assert "title" in movie

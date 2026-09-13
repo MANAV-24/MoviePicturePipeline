@@ -1,21 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
-  labels:
-    app: frontend
+  name: moviepicture-frontend
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
-      app: frontend
+      app: moviepicture-frontend
   template:
     metadata:
       labels:
-        app: frontend
+        app: moviepicture-frontend
     spec:
       containers:
         - name: frontend
-          image: frontend
+          image: frontend:latest
           ports:
             - containerPort: 3000
