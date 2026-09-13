@@ -7,4 +7,3 @@ MOVIE_CATALOG = [
 
 def catalogue():
     return MOVIE_CATALOG
-    
