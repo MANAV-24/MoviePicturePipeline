@@ -131,7 +131,7 @@ jobs:
           kustomize-version: latest
 
       - name: Update kubeconfig
-        run: aws eks update-kubeconfig --name cluster --region $AWS_REGION
+        run: aws eks update-kubeconfig --name scrumptious-lofi-sheepdog --region us-east-1
 
       - name: Update frontend image
         run: |
